@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI RUN : 바이러스 탈출 작전</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- 시작 / 캐릭터 선택 화면 -->
+      <section id="screen-select" class="screen">
+        <p class="eyebrow">CYBER WORLD</p>
+        <h1>AI RUN</h1>
+        <p class="subtitle">바이러스 탈출 작전</p>
+        <p class="hint">함께 달릴 AI 캐릭터를 선택하세요</p>
+
+        <div class="character-row">
+          <button class="character-card selected" data-id="piya" type="button">
+            <div class="portrait-frame">
+              <img id="portrait-piya" alt="삐야" />
+            </div>
+            <strong>AI 삐야</strong>
+            <span>노란 병아리형 AI</span>
+          </button>
+          <button class="character-card" data-id="oru" type="button">
+            <div class="portrait-frame">
+              <img id="portrait-oru" alt="오르" />
+            </div>
+            <strong>AI 오르</strong>
+            <span>하얀 데이터 생명체</span>
+          </button>
+        </div>
+
+        <button id="btn-start" class="primary" type="button">게임 시작</button>
+        <p class="controls">← → 레인 이동 · ↑ / Space 점프 · ↓ 빠른 하강</p>
+      </section>
+
+      <!-- 플레이 화면 -->
+      <section id="screen-play" class="screen hidden">
+        <header class="hud">
+          <div>
+            <span class="label">SCORE</span>
+            <strong id="score">000000</strong>
+          </div>
+          <div class="hud-center">
+            <span id="difficulty">EASY</span>
+            <span id="best-live">BEST 000000</span>
+          </div>
+          <div id="lives" class="lives" aria-label="목숨"></div>
+        </header>
+        <canvas id="game" width="960" height="540"></canvas>
+        <div class="touch-controls">
+          <button id="btn-left" type="button">← 왼쪽</button>
+          <button id="btn-jump" type="button">점프</button>
+          <button id="btn-right" type="button">오른쪽 →</button>
+        </div>
+        <p class="mobile-hint">키보드: ← → 이동 · ↑ / Space 점프 · ↓ 빠른 하강</p>
+      </section>
+
+      <!-- 게임 오버 화면 -->
+      <section id="screen-over" class="screen overlay hidden">
+        <div class="panel">
+          <p class="eyebrow danger">SYSTEM ERROR</p>
+          <h2>GAME OVER</h2>
+          <p class="label">FINAL SCORE</p>
+          <p id="final-score" class="big-score">0</p>
+          <p class="label">BEST SCORE</p>
+          <p id="best-score">0</p>
+          <div class="over-actions">
+            <button id="btn-retry" class="primary" type="button">다시 플레이</button>
+            <button id="btn-home" class="ghost" type="button">캐릭터 선택</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <script src="game.js"></script>
+  </body>
+</html>
